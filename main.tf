@@ -14,16 +14,16 @@ provider "astra" {
 
 // Create the database and initial keyspace
 resource "astra_database" "dev" {
-  name           = "starship_enterprise"
+  name           = "starship"
   keyspace       = "life_support_systems"
-  cloud_provider = "AWS"
-  region         = "eu-central-1"
+  cloud_provider = "gcp"
+  region         = "us-east1"
 }
 
 // Get the location of the secure connect bundle
-data "astra_secure_connect_bundle_url" "dev" {
-  database_id = astra_database.dev.id
-}
+//data "astra_secure_connect_bundle_url" "dev" {
+//  database_id = astra_database.dev.id
+//}
 
 // Output the created database id
 output "database_id" {
@@ -31,6 +31,7 @@ output "database_id" {
 }
 
 // Output the download location for the secure connect bundle
-output "secure_connect_bundle_url" {
-  value = data.astra_secure_connect_bundle_url.dev.url
-}
+//output "secure_connect_bundle_url" {
+//  value = data.astra_secure_connect_bundle_url.dev.url
+//}
+
